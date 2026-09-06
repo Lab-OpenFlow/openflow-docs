@@ -1,21 +1,21 @@
 import { defineConfig } from 'vitepress';
 
 export default defineConfig({
-  base: '/docs/',
+  base: '/openflow-docs/',
   title: 'OpenFlow',
-  description: 'High-Performance Distributed & Protocol-Agnostic Workflow Orchestrator for Golang',
+  description: 'High-Performance, Distributed & Protocol-Agnostic Workflow Orchestrator in Go',
   lang: 'en-US',
   lastUpdated: true,
   cleanUrls: true,
   ignoreDeadLinks: true,
 
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/openflow-docs/logo.svg' }],
     ['meta', { name: 'theme-color', content: '#38bdf8' }],
   ],
 
   themeConfig: {
-    siteTitle: '⚡ OpenFlow',
+    siteTitle: '🌊 OpenFlow',
     nav: [
       { text: 'Guide', link: '/guide/getting-started' },
       { text: 'Architecture', link: '/guide/architecture' },
@@ -23,7 +23,7 @@ export default defineConfig({
       { text: 'Saga Rollback', link: '/saga/distributed-transactions' },
       { text: 'CLI (openflowctl)', link: '/cli/openflowctl' },
       { text: 'API Reference', link: '/api/rest-and-websocket' },
-      { text: 'GitHub', link: 'https://github.com/openflow/openflow' },
+      { text: 'GitHub', link: 'https://github.com/Lab-OpenFlow/openflow' },
     ],
 
     sidebar: [
@@ -53,7 +53,7 @@ export default defineConfig({
         ],
       },
       {
-        text: '🛡️ Distributed Transactions & Resilience',
+        text: '🔄 Distributed Transactions & Resilience',
         collapsed: false,
         items: [
           { text: 'Saga Pattern & Backward Rollbacks', link: '/saga/distributed-transactions' },
@@ -62,7 +62,7 @@ export default defineConfig({
         ],
       },
       {
-        text: '🔒 Security & Governance',
+        text: '🛡️ Security & Governance',
         collapsed: false,
         items: [
           { text: 'Secret Vault (AES-GCM 256)', link: '/security/vault-and-encryption' },
@@ -79,7 +79,7 @@ export default defineConfig({
         ],
       },
       {
-        text: '⚡ CNCF Cloud-Native Architecture',
+        text: '☸️ CNCF Cloud-Native Architecture',
         collapsed: false,
         items: [
           { text: 'Kubernetes Operator & GitOps', link: '/cncf/kubernetes-operator' },
@@ -89,7 +89,7 @@ export default defineConfig({
         ],
       },
       {
-        text: '💻 Developer Tools & API',
+        text: '🛠️ Developer Tools & API',
         collapsed: false,
         items: [
           { text: 'openflowctl CLI Reference', link: '/cli/openflowctl' },
@@ -98,7 +98,7 @@ export default defineConfig({
         ],
       },
       {
-        text: '☸️ Deployment & Operations',
+        text: '🐳 Deployment & Operations',
         collapsed: false,
         items: [
           { text: 'Docker Compose Deployment', link: '/deployment/docker-compose' },
@@ -113,12 +113,12 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/openflow/openflow' },
+      { icon: 'github', link: 'https://github.com/Lab-OpenFlow/openflow' },
     ],
 
     footer: {
       message: 'Released under the Apache 2.0 License. Open Source Distributed Orchestration Platform.',
-      copyright: 'Copyright © 2026 OpenFlow Project',
+      copyright: 'Copyright © 2026 Lab-OpenFlow Project',
     },
   },
 });
