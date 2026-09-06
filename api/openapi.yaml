@@ -1,0 +1,117 @@
+openapi: 3.0.3
+info:
+  title: OpenFlow Orchestrator API
+  description: High-Performance Distributed & Protocol-Agnostic Workflow Orchestrator API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Local / Docker Server
+paths:
+  /api/v1/workflows:
+    get:
+      summary: List Workflows
+      tags: [Workflows]
+      responses:
+        '200':
+          description: List of workflows
+    post:
+      summary: Deploy or Create Workflow
+      tags: [Workflows]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-yaml:
+            schema:
+              type: string
+      responses:
+        '201':
+          description: Workflow deployed successfully
+  /api/v1/workflows/{id}:
+    get:
+      summary: Get Workflow by ID
+      tags: [Workflows]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Workflow definition
+    delete:
+      summary: Delete Workflow
+      tags: [Workflows]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Workflow deleted
+  /api/v1/workflows/{id}/execute:
+    post:
+      summary: Execute Workflow
+      tags: [Workflows]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Execution instance initiated
+  /api/v1/executions:
+    get:
+      summary: List Executions
+      tags: [Executions]
+      parameters:
+        - name: workflow_id
+          in: query
+          schema:
+            type: string
+        - name: status
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of execution instances
+  /api/v1/executions/{id}:
+    get:
+      summary: Get Execution Details
+      tags: [Executions]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Execution details with step history
+  /health:
+    get:
+      summary: Health Check
+      tags: [System]
+      responses:
+        '200':
+          description: Server status
+  /metrics:
+    get:
+      summary: Prometheus Metrics
+      tags: [System]
+      responses:
+        '200':
+          description: Prometheus metrics output
